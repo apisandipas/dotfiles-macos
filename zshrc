@@ -22,13 +22,19 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/.yarn/bin:$PATH
 export PATH=$PATH:~/Library/Python/3.7/bin
 
+source $ZSH/oh-my-zsh.sh
+
 #Aliases
 alias zconf="code ~/.zshrc"
 alias ohmy="code ~/.oh-my-zsh"
 alias vim="nvim"
 alias cat="bat"
-alias ls="lsd -al"
-alias lt="ls --tree"
+alias ls='exa'
+alias ll='exa -alh'
+alias lll='exa -l | less'
+alias lla='exa -la'
+alias lt='exa -T'
+alias llfu='exa -bghHliS --git'
 alias dennis="curl -L http://git.io/unix"
 alias gcan="git commit --amend --no-edit"
 alias gfp="git push -f"
@@ -47,10 +53,7 @@ flip() {
     echo     "  (╯°□°）╯︵ ┻━┻"; sleep .5;
 }
 
-plugins=(git osx zsh-syntax-highlighting)
+plugins=(git osx z zsh-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
 source ~/.nvm/nvm.sh
-
-. ~/bin/z/z.sh
 
