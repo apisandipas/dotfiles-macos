@@ -11,9 +11,6 @@
 " zsh
 let &shell='/bin/zsh -i'
 
-"sds Set variable for platform
-let uname = substitute(system('uname'), '\n', '', '')
-
 """ Load plugins
 
 call plug#begin('~/.vim/plugged/')
@@ -27,30 +24,25 @@ call plug#begin('~/.vim/plugged/')
   Plug 'MaxMEllon/vim-jsx-pretty'
   Plug 'mattn/emmet-vim'
   Plug 'mhinz/vim-startify'
-
-  if uname == 'Darwin'
-    Plug 'gertjanreynaert/cobalt2-vim-theme'
-  elseif uname == 'Linux'
-    Plug 'chriskempson/base16-vim'
-  endif
-
+  Plug 'chriskempson/base16-vim'
   "Keep this one last as per project readme
   Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 """ Appearance
 
-if uname == 'Darwin'        " Set colorscheme on MacOS
-  colorscheme cobalt2
-elseif uname == 'Linux'
-  colorscheme base16-ocean  " Set colorscheme on Linux
-endif
+colorscheme base16-ocean  " Set colorscheme on Linux
 
 syntax enable		            " Enable syntax hightlighting
 filetype plugin indent on   " Enable filtype detection and indent plugin
 
 set cursorline              " Highlight currentline
 set autoread                " Autoreload this file in vim if it was changed outof vim
+
+highlight clear cursorline
+highlight StatusLine ctermbg=black
+highlight LineNr ctermfg=blue ctermbg=black
+highlight CursorLineNr ctermfg=red ctermbg=black
 
 """ Basic Behavior
 
@@ -91,11 +83,7 @@ nnoremap <CR> :nohlsearch<CR><CR>
 let NERDTreeShowHidden=1  		             " Show hidden files in NERDTree
 let g:airline_powerline_fonts=1 	         " Enable powerline fonts
 
-if uname == 'Darwin'
-  let g:airline_theme='cobalt2' 		           " enable airline theme
-elseif uname == 'Linux'
-  let g:airline_theme='base16'  		         " enable airline theme
-endif
+let g:airline_theme='base16'  		         " enable airline theme
 
 let g:airline#extensions#tabline#enabled=1 " enable airline tabline extention
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
