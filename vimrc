@@ -36,7 +36,7 @@ colorscheme base16-ocean  " Set colorscheme on Linux
 syntax enable		            " Enable syntax hightlighting
 filetype plugin indent on   " Enable filtype detection and indent plugin
 
-set cursorline              " Highlight currentline
+" set cursorline              " Highlight currentline
 set autoread                " Autoreload this file in vim if it was changed outof vim
 
 highlight clear cursorline

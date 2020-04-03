@@ -21,6 +21,7 @@ export PATH=$PATH:$HOME/.rvm/bin
 export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/.yarn/bin:$PATH
 export PATH=$PATH:~/Library/Python/3.7/bin
+export PATH=$PATH:$HOME/bin
 
 source $ZSH/oh-my-zsh.sh
 
