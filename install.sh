@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-PWD=$(pwd)
 
 echo "Linking config files...";
 
@@ -19,3 +18,10 @@ echo "Linking $PWD/gitconfig";
 ln -svi "$PWD/gitconfig" ~/.gitconfig
 
 echo "Finished linking config files!";
+
+echo "Linking scripts directory...";
+
+# [ ! -d "~/bin" ] && mkdir ~/scripts;
+ln -svi  "$PWD/scripts" ~/;
+
+echo "Finished scripts directory!";
